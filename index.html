@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mydiv{
+            border: 2px solid red;
+            color:rgb(0, 195, 255);
+            text-align: center;
+            margin: 50px;
+            font-size: large;  
+        }
+    </style>
+    <script>
+        function calculateci(){
+            document.getElementById("ci").setAttribute('readonly','false');
+            var p = parseFloat(document.getElementById("pri").value);
+            var r = parseFloat(document.getElementById("roi").value);
+            var p = parseInt(document.getElementById("pri").value);
+            var q = (1+(r/100));
+            var z = 1;
+            for(var i=1;i<=p;i++)
+            {
+              z = z* q;
+            }
+            // q=p*z;
+            // z=q-p;
+
+
+           
+            document.getElementById("ci").value=z;
+        }
+    </script>
+</head>
+<body>
+    <div id="mydiv">
+        Compound Intrest Calculator 
+    </div>
+    <form action="get" >
+        <table>
+            <tr>
+                <td>
+                    Principal :
+                </td>
+                <td>
+                    <input type="number" id="pri" name="pri"></input>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Rate of intrest :
+                </td>
+                <td>
+                    <input type="number" id="roi" name="roi"></input>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    Period :
+                </td>
+                <td>
+                    <input type="number" id="tenu" name="tenu"></input>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                  Compound Intrest :
+                </td>
+                <td>
+                    <input type="number" id="ci" name="ci" readonly></input>
+                </td>
+
+            </tr>
+            
+            
+
+        </table>
+        <button type="button" name="btn" id="btn" onclick="calculateci()">Calculate</button>
+    </form>
+</body>
+</html>
